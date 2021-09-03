@@ -52,7 +52,6 @@ client.connect(err => {
         imageCollections.find({ date: date.date })
             .toArray((err, documents) => {
                 res.send(documents);
-                console.log(documents);
             })
     })
 
