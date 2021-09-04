@@ -4,11 +4,10 @@ const cors = require('cors');
 const { MongoClient } = require('mongodb');
 const ObjectId = require('mongodb').ObjectId;
 require('dotenv').config();
-const fileUpload = require('express-fileupload');
 
+console.log(process.env.DB_USER);
 const app = express()
-app.use(express.static('images'));
-app.use(fileUpload());
+
 app.use(bodyParser.json());
 app.use(cors());
 
@@ -48,10 +47,11 @@ client.connect(err => {
 
     app.post('/imageByDates', (req, res) => {
         const date = req.body;
-        console.log(date.date);
+        // console.log(date.date);
         imageCollections.find({ date: date.date })
             .toArray((err, documents) => {
                 res.send(documents);
+                console.log(documents)
             })
     })
 
