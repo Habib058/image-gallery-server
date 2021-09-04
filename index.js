@@ -4,12 +4,13 @@ const cors = require('cors');
 const { MongoClient } = require('mongodb');
 const ObjectId = require('mongodb').ObjectId;
 require('dotenv').config();
-
-console.log(process.env.DB_USER);
 const app = express()
 
 app.use(bodyParser.json());
 app.use(cors());
+// DB_USER = doctorHabib
+// DB_NAME = imagesGallery
+// DB_PASS = habib058
 
 const port = process.env.PORT || 5000;
 
